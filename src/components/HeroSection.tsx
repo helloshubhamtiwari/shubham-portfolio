@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Linkedin, Mail, Instagram, Github, Download } from "lucide-react";
-import profileImage from "figma:asset/b5e0fb96ab7ea9468a56acdfb45740b35b3b7cc5.png";
+// @ts-ignore
+import profileImage from "../assets/b5e0fb96ab7ea9468a56acdfb45740b35b3b7cc5.png";
 import { useTheme } from "./ThemeContext";
 import { AnimatedText } from "./AnimatedText";
 import { TypewriterText } from "./TypewriterText";
@@ -66,6 +67,7 @@ export function HeroSection() {
                 }}
               >
                 <div className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block">
+                  {/* @ts-ignore */}
                   <ShinyText 
                     text="Shubham" 
                     disabled={false} 
@@ -76,6 +78,7 @@ export function HeroSection() {
                   />
                 </div>
                 <div className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block">
+                  {/* @ts-ignore */}
                   <ShinyText 
                     text="Tiwari" 
                     disabled={false} 
@@ -99,6 +102,7 @@ export function HeroSection() {
                   theme === "dark" ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
+                {/* @ts-ignore */}
                 <TextType
                   text={[
                     "Frontend Developer",
