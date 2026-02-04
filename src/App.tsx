@@ -6,23 +6,31 @@ import { UnifiedProjectsSection } from "./components/UnifiedProjectsSection";
 import { PortfolioSection } from "./components/PortfolioSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
-import { ParticleBackground } from "./components/ParticleBackground";
+// import { ParticleBackground } from "./components/ParticleBackground";
 import { CursorTrail } from "./components/CursorTrail";
 import { ThemeProvider, useTheme } from "./components/ThemeContext";
 import { Toaster } from "sonner";
+import DarkVeil from "./components/DarkVeil";
 
 function AppContent() {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen relative transition-colors duration-300 ${
-      theme === "dark" ? "bg-[#0a0a0f]" : "bg-white"
-    }`}>
+    <div className="min-h-screen relative transition-colors duration-300">
       {/* Cursor trail effect */}
       <CursorTrail />
       
-      {/* Ambient particle effect */}
-      <ParticleBackground />
+      {/* Dark Veil Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-black">
+        <DarkVeil
+          hueShift={0}
+          noiseIntensity={0}
+          scanlineIntensity={0}
+          speed={0.5}
+          scanlineFrequency={0}
+          warpAmount={0}
+        />
+      </div>
       
       {/* Content */}
       <div className="relative z-10">

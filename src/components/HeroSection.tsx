@@ -4,6 +4,8 @@ import profileImage from "figma:asset/b5e0fb96ab7ea9468a56acdfb45740b35b3b7cc5.p
 import { useTheme } from "./ThemeContext";
 import { AnimatedText } from "./AnimatedText";
 import { TypewriterText } from "./TypewriterText";
+import ShinyText from "./ShinyText";
+import TextType from "./TextType";
 
 // Custom Behance icon component
 function BehanceIcon({ className }: { className?: string }) {
@@ -25,14 +27,8 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className={`relative min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${
-        theme === "dark" ? "bg-[#0a0a0f]" : "bg-white"
-      }`}
+      className="relative min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 transition-colors duration-300 transparent"
     >
-      {/* Subtle gradient background */}
-      <div className={`absolute inset-0 bg-gradient-to-b ${
-        theme === "dark" ? "from-cyan-950/5" : "from-cyan-100/30"
-      } via-transparent to-transparent`} />
 
       <div className="relative max-w-6xl w-full mx-auto py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -69,16 +65,26 @@ export function HeroSection() {
                   damping: 20,
                 }}
               >
-                <AnimatedText
-                  text="Shubham"
-                  className={`text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block`}
-                  gradient={true}
-                />
-                <AnimatedText
-                  text="Tiwari"
-                  className={`text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block`}
-                  gradient={true}
-                />
+                <div className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block">
+                  <ShinyText 
+                    text="Shubham" 
+                    disabled={false} 
+                    speed={3} 
+                    className="custom-class" 
+                    color={theme === "dark" ? "#22d3ee" : "#0891b2"} // Cyan colors
+                    shineColor={theme === "dark" ? "#ffffff" : "#e0f2fe"} 
+                  />
+                </div>
+                <div className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block">
+                  <ShinyText 
+                    text="Tiwari" 
+                    disabled={false} 
+                    speed={3} 
+                    className="custom-class" 
+                    color={theme === "dark" ? "#22d3ee" : "#0891b2"}
+                    shineColor={theme === "dark" ? "#ffffff" : "#e0f2fe"} 
+                  />
+                </div>
               </motion.div>
 
               {/* Title with Typewriter Animation */}
@@ -93,15 +99,17 @@ export function HeroSection() {
                   theme === "dark" ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                <TypewriterText
-                  texts={[
+                <TextType
+                  text={[
                     "Frontend Developer",
                     "UI/UX Designer",
                     "Professional Video Editor",
                   ]}
-                  typingSpeed={80}
-                  deletingSpeed={40}
-                  pauseDuration={2500}
+                  typingSpeed={75}
+                  deletingSpeed={50}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
                 />
               </motion.h2>
 

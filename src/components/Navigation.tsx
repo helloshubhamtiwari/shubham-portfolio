@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 
 const navItems = [
@@ -15,6 +15,7 @@ const navItems = [
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   const { scrollY } = useScroll();
@@ -49,17 +50,21 @@ export function Navigation() {
     href: string,
   ) => {
     e.preventDefault();
+    setIsMobileMenuOpen(false); // Close menu immediately
+
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80;
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
+      setTimeout(() => {
+        const offset = 80;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }, 100); // Small delay to allow menu close interaction to settle
     }
   };
 
@@ -138,7 +143,7 @@ export function Navigation() {
             </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Fixed to work properly */}
           <div className="md:hidden flex items-center gap-2">
             <motion.button
               onClick={toggleTheme}
@@ -154,25 +159,59 @@ export function Navigation() {
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </motion.button>
             
-            <button className={`${theme === "dark" ? "text-zinc-400 hover:text-zinc-100" : "text-zinc-600 hover:text-zinc-900"}`}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2 rounded-lg transition-colors ${
+                theme === "dark" 
+                  ? "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/50" 
+                  : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
+              }`}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className={`md:hidden border-t ${
+              theme === "dark" 
+                ? "bg-[#0a0a0f]/95 border-zinc-800/50" 
+                : "bg-white/95 border-zinc-200/50"
+            } backdrop-blur-md overflow-hidden`}
+          >
+            <div className="flex flex-col px-6 py-4 space-y-4">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.slice(1);
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleClick(e, item.href)}
+                    className={`text-base font-medium transition-colors py-2 active:scale-95 duration-200 ${
+                      isActive
+                        ? theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                        : theme === "dark" ? "text-zinc-400 hover:text-zinc-100 active:text-cyan-400" : "text-zinc-600 hover:text-zinc-900 active:text-cyan-600"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }

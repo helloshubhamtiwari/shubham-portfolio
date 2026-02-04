@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useTheme } from "./ThemeContext";
 import { GlassCard } from "./GlassCard";
+import Antigravity from "./Antigravity";
 
 const skills = {
   "UI/UX & Design": [
@@ -43,7 +44,29 @@ export function SkillsSection() {
           : "bg-gradient-to-b from-zinc-50 to-white"
       }`}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="absolute inset-0 z-0 hidden lg:block pointer-events-none">
+        <div className="w-full h-full" style={{ position: 'relative', width: '100%', height: '100%' }}>
+           <Antigravity
+             count={150} // Reduced count for subtlety
+             magnetRadius={15}
+             ringRadius={15}
+             waveSpeed={0.2}
+             waveAmplitude={1}
+             particleSize={1.5}
+             lerpSpeed={0.05}
+             color={theme === 'dark' ? '#22d3ee' : '#0891b2'} // Cyan to match theme
+             autoAnimate
+             particleVariance={1}
+             rotationSpeed={0}
+             depthFactor={1}
+             pulseSpeed={3}
+             particleShape="capsule"
+             fieldStrength={10}
+           />
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

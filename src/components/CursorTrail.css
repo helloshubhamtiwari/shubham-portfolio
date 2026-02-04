@@ -1,0 +1,48 @@
+/* CursorTrail.css */
+
+/* The individual trail circles */
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black; /* Default color, change as needed for theme */
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999; /* Higher than everything else */
+  transition: transform 0.1s ease-out; /* Smooth scaling */
+}
+
+/* Hidden state for initialization */
+.circle-hidden {
+  opacity: 0;
+}
+
+/* Effect when hovering over interactive elements (inputs, links, buttons) */
+.circle-thin {
+  transform: scale(0.5); /* Shrink effect */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+/* Dark mode overrides (assuming you toggle a 'dark' class on body or html) */
+/* Light Mode (Default) */
+.circle {
+  background-color: black;
+}
+
+.circle-thin {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+/* Dark Mode Overrides - targeted via specific class added by React */
+.circle.theme-dark {
+  background-color: white !important;
+}
+
+.circle.theme-dark.circle-thin {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+}
