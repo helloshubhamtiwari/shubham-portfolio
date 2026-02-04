@@ -1,11 +1,4 @@
+# Shubham Portfolio
 
-  # Shubham Portfolio
-
-  This is a code bundle for Shubham Portfolio. The original project is available at https://www.figma.com/design/St9OzhtM2kMO6U8uYdO9Tj/Shubham-Portfolio.
-
-  ## Running the code
-
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+A modern portfolio website built with React, Vite, and Tailwind CSS.
+Active deployment trigger.
