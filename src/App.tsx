@@ -24,7 +24,7 @@ function AppContent() {
       {/* Dark Veil Background (Dark Mode Only) */}
       {theme === "dark" ? (
         <div className="fixed inset-0 z-0 pointer-events-none bg-black">
-          <div className="hidden lg:block w-full h-full">
+          <div className="hidden md:block w-full h-full">
             <DarkVeil
               hueShift={0}
               noiseIntensity={0.5}
