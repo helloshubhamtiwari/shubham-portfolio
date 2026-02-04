@@ -24,14 +24,16 @@ function AppContent() {
       {/* Dark Veil Background (Dark Mode Only) */}
       {theme === "dark" ? (
         <div className="fixed inset-0 z-0 pointer-events-none bg-black">
-          <DarkVeil
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={0.5}
-            scanlineFrequency={0}
-            warpAmount={0}
-          />
+          <div className="hidden lg:block w-full h-full">
+            <DarkVeil
+              hueShift={0}
+              noiseIntensity={0.5}
+              scanlineIntensity={0}
+              speed={0.5}
+              scanlineFrequency={0}
+              warpAmount={0.5}
+            />
+          </div>
         </div>
       ) : (
         <div className="fixed inset-0 z-0 pointer-events-none bg-white" />

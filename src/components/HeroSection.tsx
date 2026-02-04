@@ -73,8 +73,8 @@ export function HeroSection() {
                     disabled={false} 
                     speed={3} 
                     className="custom-class" 
-                    color={theme === "dark" ? "#22d3ee" : "#0891b2"} // Cyan colors
-                    shineColor={theme === "dark" ? "#ffffff" : "#e0f2fe"} 
+                    color={theme === "dark" ? "#ffffff" : "#0891b2"} // White in dark mode
+                    shineColor={theme === "dark" ? "#22d3ee" : "#e0f2fe"} // Cyan shine 
                   />
                 </div>
                 <div className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block">
@@ -84,8 +84,8 @@ export function HeroSection() {
                     disabled={false} 
                     speed={3} 
                     className="custom-class" 
-                    color={theme === "dark" ? "#22d3ee" : "#0891b2"}
-                    shineColor={theme === "dark" ? "#ffffff" : "#e0f2fe"} 
+                    color={theme === "dark" ? "#ffffff" : "#0891b2"}
+                    shineColor={theme === "dark" ? "#22d3ee" : "#e0f2fe"} 
                   />
                 </div>
               </motion.div>
@@ -99,7 +99,7 @@ export function HeroSection() {
                 }}
                 transition={{ delay: 0.4 }}
                 className={`text-2xl sm:text-3xl lg:text-4xl font-semibold min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[3.5rem] ${
-                  theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                  theme === "dark" ? "text-zinc-200" : "text-zinc-600"
                 }`}
               >
                 {/* @ts-ignore */}
@@ -123,7 +123,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 className={`text-lg max-w-2xl leading-relaxed ${
-                  theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                  theme === "dark" ? "text-zinc-300" : "text-zinc-600"
                 }`}
               >
                 I'm a BCA student specializing in UI/UX from Chandigarh University, passionate about building modern web experiences, intuitive interfaces, and visually engaging digital products.
