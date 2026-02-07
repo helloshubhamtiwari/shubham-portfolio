@@ -24,10 +24,20 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
+      // Fetch IP address
+      let ipAddress = "Unknown";
+      try {
+        const res = await fetch("https://api.ipify.org?format=json");
+        const data = await res.json();
+        ipAddress = data.ip;
+      } catch (error) {
+        console.error("Failed to fetch IP:", error);
+      }
+
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
-        message: formData.message,
+        message: `${formData.message}\n\n[Sender Info]\nIP Address: ${ipAddress}\nUser Agent: ${navigator.userAgent}`,
         to_name: "Shubham",
       };
 
