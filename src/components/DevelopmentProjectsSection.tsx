@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { ExternalLink, Github, Star } from "lucide-react";
@@ -43,7 +43,7 @@ export function DevelopmentProjectsSection() {
     <section id="dev-projects" className="relative py-32 px-4 bg-slate-950 overflow-hidden">
       {/* Animated Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      
+
       <div className="relative max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export function DevelopmentProjectsSection() {
               Live Applications
             </div>
           </motion.div>
-          
+
           <h2 className="text-white text-5xl md:text-6xl mb-4">Development Projects</h2>
           <p className="text-slate-300 text-xl">Built with modern web technologies</p>
         </motion.div>
@@ -82,7 +82,7 @@ export function DevelopmentProjectsSection() {
               <Card className="relative overflow-hidden rounded-3xl border-0 shadow-2xl bg-slate-900/50 backdrop-blur-lg border border-white/10 h-full flex flex-col">
                 {/* Glowing Effect */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
-                
+
                 <div className="relative overflow-hidden">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 2 }}
@@ -94,7 +94,7 @@ export function DevelopmentProjectsSection() {
                       className="w-full h-64 object-cover"
                     />
                   </motion.div>
-                  
+
                   {/* GitHub Stars Badge */}
                   <motion.div
                     initial={{ x: 100 }}
@@ -105,7 +105,7 @@ export function DevelopmentProjectsSection() {
                     <span className="text-white text-sm">{project.stars}</span>
                   </motion.div>
                 </div>
-                
+
                 <CardHeader>
                   <CardTitle className="text-white text-2xl">{project.title}</CardTitle>
                   <div className="flex flex-wrap gap-2 mt-3">
@@ -119,11 +119,11 @@ export function DevelopmentProjectsSection() {
                     ))}
                   </div>
                 </CardHeader>
-                
+
                 <CardContent className="flex-1">
                   <p className="text-slate-300 text-lg">{project.description}</p>
                 </CardContent>
-                
+
                 <CardFooter className="gap-3">
                   <Button
                     className={`flex-1 gap-2 rounded-2xl bg-gradient-to-r ${project.color} hover:shadow-lg hover:scale-105 transition-all duration-300 border-0`}

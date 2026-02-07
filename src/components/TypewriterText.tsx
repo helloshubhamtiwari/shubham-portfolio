@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "framer-motion";
 
 interface TypewriterTextProps {
   texts: string[];
@@ -9,8 +9,8 @@ interface TypewriterTextProps {
   pauseDuration?: number;
 }
 
-export function TypewriterText({ 
-  texts, 
+export function TypewriterText({
+  texts,
   className = "",
   typingSpeed = 100,
   deletingSpeed = 50,

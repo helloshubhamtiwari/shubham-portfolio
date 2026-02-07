@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Mail, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "./ThemeContext";
@@ -14,10 +14,10 @@ export function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // EmailJS Keys
-  const SERVICE_ID = "service_8ulth9p";
-  const TEMPLATE_ID = "template_11uzwru";
-  const PUBLIC_KEY = "yhmVOoJTdJNsRSX1s";
+  // EmailJS Keys - loaded from environment variables
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,10 +41,13 @@ export function ContactSection() {
       toast.success("Message sent successfully!", {
         description: "I'll get back to you as soon as possible.",
       });
-      
+
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      // Only log errors in development mode
+      if (import.meta.env.DEV) {
+        console.error("EmailJS Error:", error);
+      }
       toast.error("Failed to send message.", {
         description: "Please check your internet connection or try again later.",
       });
@@ -56,9 +59,8 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${
-        theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
-      }`}
+      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
+        }`}
     >
       <div className="max-w-4xl mx-auto">
         <motion.div
@@ -68,10 +70,9 @@ export function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <motion.p 
-            className={`text-sm font-medium tracking-wide uppercase mb-4 ${
-              theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-            }`}
+          <motion.p
+            className={`text-sm font-medium tracking-wide uppercase mb-4 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+              }`}
             animate={{
               opacity: [0.7, 1, 0.7],
             }}
@@ -83,10 +84,9 @@ export function ContactSection() {
           >
             Get In Touch
           </motion.p>
-          <motion.h2 
-            className={`text-4xl sm:text-5xl font-bold mb-4 ${
-              theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-            }`}
+          <motion.h2
+            className={`text-4xl sm:text-5xl font-bold mb-4 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+              }`}
             animate={{
               scale: [1, 1.02, 1],
             }}
@@ -98,9 +98,8 @@ export function ContactSection() {
           >
             Let's Work Together
           </motion.h2>
-          <p className={`text-lg max-w-2xl mx-auto ${
-            theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-          }`}>
+          <p className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+            }`}>
             Have a project, idea, or collaboration in mind? Let's connect.
           </p>
         </motion.div>
@@ -115,14 +114,12 @@ export function ContactSection() {
             className="space-y-6"
           >
             <div>
-              <h3 className={`text-xl font-semibold mb-4 ${
-                theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-              }`}>
+              <h3 className={`text-xl font-semibold mb-4 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+                }`}>
                 Contact Information
               </h3>
-              <p className={`leading-relaxed mb-6 ${
-                theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-              }`}>
+              <p className={`leading-relaxed mb-6 ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                }`}>
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </div>
@@ -131,24 +128,20 @@ export function ContactSection() {
               <motion.a
                 href="mailto:shubhxtiwari@gmail.com"
                 whileHover={{ x: 4 }}
-                className={`flex items-center gap-3 p-4 border rounded-lg transition-all ${
-                  theme === "dark"
-                    ? "bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50"
-                    : "bg-white border-zinc-200 hover:border-zinc-300"
-                }`}
+                className={`flex items-center gap-3 p-4 border rounded-lg transition-all ${theme === "dark"
+                  ? "bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50"
+                  : "bg-white border-zinc-200 hover:border-zinc-300"
+                  }`}
               >
-                <div className={`p-2 rounded-lg ${
-                  theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
-                }`}>
-                  <Mail className={`w-5 h-5 ${
-                    theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                  }`} />
+                <div className={`p-2 rounded-lg ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
+                  }`}>
+                  <Mail className={`w-5 h-5 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                    }`} />
                 </div>
                 <div>
-                  <p className={`text-sm ${
-                    theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-                  }`}>Email</p>
-                  <p className={theme === "dark" ? "text-zinc-300" : "text-zinc-900"}>Shubhxtiwari@gmail.com</p>
+                  <p className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                    }`}>Email</p>
+                  <p className={theme === "dark" ? "text-zinc-300" : "text-zinc-900"}>shubhxtiwari@gmail.com</p>
                 </div>
               </motion.a>
             </div>
@@ -165,9 +158,8 @@ export function ContactSection() {
               <div>
                 <label
                   htmlFor="name"
-                  className={`block text-sm font-medium mb-2 ${
-                    theme === "dark" ? "text-zinc-300" : "text-zinc-700"
-                  }`}
+                  className={`block text-sm font-medium mb-2 ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"
+                    }`}
                 >
                   Name
                 </label>
@@ -179,11 +171,10 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${
-                    theme === "dark"
-                      ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
-                      : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${theme === "dark"
+                    ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
+                    : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
+                    }`}
                   required
                   disabled={isSubmitting}
                 />
@@ -192,9 +183,8 @@ export function ContactSection() {
               <div>
                 <label
                   htmlFor="email"
-                  className={`block text-sm font-medium mb-2 ${
-                    theme === "dark" ? "text-zinc-300" : "text-zinc-700"
-                  }`}
+                  className={`block text-sm font-medium mb-2 ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"
+                    }`}
                 >
                   Email
                 </label>
@@ -206,11 +196,10 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${
-                    theme === "dark"
-                      ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
-                      : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${theme === "dark"
+                    ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
+                    : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
+                    }`}
                   required
                   disabled={isSubmitting}
                 />
@@ -219,9 +208,8 @@ export function ContactSection() {
               <div>
                 <label
                   htmlFor="message"
-                  className={`block text-sm font-medium mb-2 ${
-                    theme === "dark" ? "text-zinc-300" : "text-zinc-700"
-                  }`}
+                  className={`block text-sm font-medium mb-2 ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"
+                    }`}
                 >
                   Message
                 </label>
@@ -233,11 +221,10 @@ export function ContactSection() {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   rows={5}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none resize-none transition-colors ${
-                    theme === "dark"
-                      ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
-                      : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none resize-none transition-colors ${theme === "dark"
+                    ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
+                    : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
+                    }`}
                   required
                   disabled={isSubmitting}
                 />
@@ -248,11 +235,10 @@ export function ContactSection() {
                 disabled={isSubmitting}
                 whileHover={!isSubmitting ? { scale: 1.05, boxShadow: theme === "dark" ? "0 10px 40px rgba(34, 211, 238, 0.3)" : "0 10px 40px rgba(8, 145, 178, 0.3)" } : {}}
                 whileTap={!isSubmitting ? { scale: 0.95 } : {}}
-                className={`w-full flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-lg transition-colors ${
-                  theme === "dark"
-                    ? "bg-cyan-400 hover:bg-cyan-500 text-zinc-900 disabled:bg-zinc-800 disabled:text-zinc-500"
-                    : "bg-cyan-600 hover:bg-cyan-700 text-white disabled:bg-zinc-200 disabled:text-zinc-500"
-                }`}
+                className={`w-full flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-lg transition-colors ${theme === "dark"
+                  ? "bg-cyan-400 hover:bg-cyan-500 text-zinc-900 disabled:bg-zinc-800 disabled:text-zinc-500"
+                  : "bg-cyan-600 hover:bg-cyan-700 text-white disabled:bg-zinc-200 disabled:text-zinc-500"
+                  }`}
               >
                 {isSubmitting ? (
                   <>

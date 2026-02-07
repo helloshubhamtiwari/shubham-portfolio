@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 
@@ -35,9 +35,8 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden transition-colors duration-300 ${
-        theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
-      }`}
+      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 overflow-hidden transition-colors duration-300 ${theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
+        }`}
     >
       {/* Animated background elements */}
       <motion.div
@@ -46,9 +45,8 @@ export function TestimonialsSection() {
           rotate: [0, 90, 0],
         }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className={`absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
-          theme === "dark" ? "bg-cyan-500" : "bg-cyan-300"
-        }`}
+        className={`absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${theme === "dark" ? "bg-cyan-500" : "bg-cyan-300"
+          }`}
       />
       <motion.div
         animate={{
@@ -56,9 +54,8 @@ export function TestimonialsSection() {
           rotate: [0, -90, 0],
         }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className={`absolute bottom-20 left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
-          theme === "dark" ? "bg-purple-500" : "bg-purple-300"
-        }`}
+        className={`absolute bottom-20 left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${theme === "dark" ? "bg-purple-500" : "bg-purple-300"
+          }`}
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -73,9 +70,8 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`text-sm font-medium tracking-wide uppercase mb-4 ${
-              theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-            }`}
+            className={`text-sm font-medium tracking-wide uppercase mb-4 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+              }`}
           >
             Testimonials
           </motion.p>
@@ -84,9 +80,8 @@ export function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl sm:text-5xl font-bold mb-4 ${
-              theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-            }`}
+            className={`text-4xl sm:text-5xl font-bold mb-4 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+              }`}
           >
             What Clients Say
           </motion.h2>
@@ -95,9 +90,8 @@ export function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className={`text-lg max-w-2xl mx-auto ${
-              theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-            }`}
+            className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+              }`}
           >
             Don't just take my word for it - here's what my clients have to say
           </motion.p>
@@ -112,11 +106,10 @@ export function TestimonialsSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, type: "spring", stiffness: 100 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className={`p-6 rounded-xl border transition-all relative overflow-hidden ${
-                theme === "dark"
+              className={`p-6 rounded-xl border transition-all relative overflow-hidden ${theme === "dark"
                   ? "bg-zinc-900/50 border-zinc-800/50 hover:border-cyan-400/30 hover:bg-zinc-900/70"
                   : "bg-white border-zinc-200 hover:border-cyan-600/30 hover:shadow-xl"
-              }`}
+                }`}
             >
               {/* Animated gradient overlay */}
               <motion.div
@@ -129,13 +122,11 @@ export function TestimonialsSection() {
               <motion.div
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${
-                  theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
-                }`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
+                  }`}
               >
-                <Quote className={`w-5 h-5 ${
-                  theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                }`} />
+                <Quote className={`w-5 h-5 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                  }`} />
               </motion.div>
 
               {/* Rating */}
@@ -149,9 +140,8 @@ export function TestimonialsSection() {
                     transition={{ delay: index * 0.2 + i * 0.1 }}
                     whileHover={{ scale: 1.3, rotate: 360 }}
                   >
-                    <Star className={`w-4 h-4 fill-current ${
-                      theme === "dark" ? "text-yellow-400" : "text-yellow-500"
-                    }`} />
+                    <Star className={`w-4 h-4 fill-current ${theme === "dark" ? "text-yellow-400" : "text-yellow-500"
+                      }`} />
                   </motion.div>
                 ))}
               </div>
@@ -162,9 +152,8 @@ export function TestimonialsSection() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 + 0.2 }}
-                className={`text-sm leading-relaxed mb-6 relative z-10 ${
-                  theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-                }`}
+                className={`text-sm leading-relaxed mb-6 relative z-10 ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                  }`}
               >
                 "{testimonial.content}"
               </motion.p>
@@ -178,9 +167,8 @@ export function TestimonialsSection() {
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className={`absolute inset-0 rounded-full border-2 border-dashed ${
-                      theme === "dark" ? "border-cyan-400/30" : "border-cyan-600/30"
-                    }`}
+                    className={`absolute inset-0 rounded-full border-2 border-dashed ${theme === "dark" ? "border-cyan-400/30" : "border-cyan-600/30"
+                      }`}
                   />
                   <img
                     src={testimonial.image}
@@ -189,14 +177,12 @@ export function TestimonialsSection() {
                   />
                 </motion.div>
                 <div>
-                  <h4 className={`font-semibold text-sm ${
-                    theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-                  }`}>
+                  <h4 className={`font-semibold text-sm ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+                    }`}>
                     {testimonial.name}
                   </h4>
-                  <p className={`text-xs ${
-                    theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-                  }`}>
+                  <p className={`text-xs ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                    }`}>
                     {testimonial.role} at {testimonial.company}
                   </p>
                 </div>

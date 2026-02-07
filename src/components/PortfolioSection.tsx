@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useTheme } from "./ThemeContext";
 import { ExternalLink } from "lucide-react";
@@ -38,13 +38,12 @@ const portfolioItems = [
 
 export function PortfolioSection() {
   const { theme } = useTheme();
-  
+
   return (
     <section
       id="portfolio"
-      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${
-        theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
-      }`}
+      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
+        }`}
     >
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -54,10 +53,9 @@ export function PortfolioSection() {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <motion.p 
-            className={`text-sm font-medium tracking-wide uppercase mb-4 ${
-              theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-            }`}
+          <motion.p
+            className={`text-sm font-medium tracking-wide uppercase mb-4 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+              }`}
             animate={{
               opacity: [0.7, 1, 0.7],
             }}
@@ -69,10 +67,9 @@ export function PortfolioSection() {
           >
             Portfolio
           </motion.p>
-          <motion.h2 
-            className={`text-4xl sm:text-5xl font-bold mb-4 ${
-              theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-            }`}
+          <motion.h2
+            className={`text-4xl sm:text-5xl font-bold mb-4 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+              }`}
             animate={{
               x: [0, 3, 0],
             }}
@@ -84,9 +81,8 @@ export function PortfolioSection() {
           >
             Design Work
           </motion.h2>
-          <p className={`text-lg max-w-2xl ${
-            theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-          }`}>
+          <p className={`text-lg max-w-2xl ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+            }`}>
             A showcase of my creative work across UI/UX design, web layouts, and video editing
           </p>
         </motion.div>
@@ -111,61 +107,54 @@ export function PortfolioSection() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className={`relative rounded-xl overflow-hidden border ${
-                  theme === "dark"
+                className={`relative rounded-xl overflow-hidden border ${theme === "dark"
                     ? "bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50"
                     : "bg-white border-zinc-200 hover:border-zinc-300"
-                } transition-all`}
+                  } transition-all`}
               >
                 {/* Image */}
-                <div className={`relative aspect-[4/3] overflow-hidden ${
-                  theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
-                }`}>
+                <div className={`relative aspect-[4/3] overflow-hidden ${theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
+                  }`}>
                   <ImageWithFallback
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  
+
                   {/* Overlay on hover */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
-                    className={`absolute inset-0 flex items-center justify-center ${
-                      theme === "dark" 
-                        ? "bg-gradient-to-t from-zinc-900/90 via-zinc-900/50 to-transparent" 
+                    className={`absolute inset-0 flex items-center justify-center ${theme === "dark"
+                        ? "bg-gradient-to-t from-zinc-900/90 via-zinc-900/50 to-transparent"
                         : "bg-gradient-to-t from-white/90 via-white/50 to-transparent"
-                    }`}
+                      }`}
                   >
                     <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
                       whileHover={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.2 }}
-                      className={`p-3 rounded-full ${
-                        theme === "dark" 
-                          ? "bg-cyan-400/20 backdrop-blur-sm border border-cyan-400/30" 
+                      className={`p-3 rounded-full ${theme === "dark"
+                          ? "bg-cyan-400/20 backdrop-blur-sm border border-cyan-400/30"
                           : "bg-cyan-600/20 backdrop-blur-sm border border-cyan-600/30"
-                      }`}
+                        }`}
                     >
-                      <ExternalLink className={`w-5 h-5 ${
-                        theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                      }`} />
+                      <ExternalLink className={`w-5 h-5 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                        }`} />
                     </motion.div>
                   </motion.div>
                 </div>
 
                 {/* Content */}
                 <div className="p-5">
-                  <h3 className={`text-lg font-semibold mb-1 transition-colors ${
-                    theme === "dark"
+                  <h3 className={`text-lg font-semibold mb-1 transition-colors ${theme === "dark"
                       ? "text-zinc-100 group-hover:text-cyan-400"
                       : "text-zinc-900 group-hover:text-cyan-600"
-                  }`}>
+                    }`}>
                     {item.title}
                   </h3>
-                  <p className={`text-sm ${
-                    theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-                  }`}>
+                  <p className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                    }`}>
                     {item.category}
                   </p>
                 </div>
@@ -188,11 +177,10 @@ export function PortfolioSection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`inline-flex items-center gap-2 px-8 py-4 rounded-lg font-medium transition-all ${
-              theme === "dark"
+            className={`inline-flex items-center gap-2 px-8 py-4 rounded-lg font-medium transition-all ${theme === "dark"
                 ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-zinc-900"
                 : "bg-gradient-to-r from-cyan-600 to-blue-600 text-white"
-            }`}
+              }`}
           >
             View Full Portfolio on Behance
             <ExternalLink className="w-5 h-5" />

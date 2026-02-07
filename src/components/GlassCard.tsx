@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { useTheme } from "./ThemeContext";
 
@@ -23,8 +23,8 @@ export function GlassCard({ children, className = "", delay = 0, hover = true }:
       style={{
         position: "relative",
         backdropFilter: "blur(18px) saturate(165%)",
-        backgroundColor: theme === "dark" 
-          ? "rgba(18, 18, 26, 0.88)" 
+        backgroundColor: theme === "dark"
+          ? "rgba(18, 18, 26, 0.88)"
           : "rgba(255, 255, 255, 0.75)",
         borderRadius: "24px",
         border: `1px solid ${theme === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`,
@@ -46,7 +46,7 @@ export function GlassCard({ children, className = "", delay = 0, hover = true }:
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       />
-      
+
       {children}
     </motion.div>
   );

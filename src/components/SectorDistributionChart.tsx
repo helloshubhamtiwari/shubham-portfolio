@@ -68,7 +68,7 @@ export function SectorDistributionChart() {
               border: "1px solid #e2e8f0",
               borderRadius: "8px",
             }}
-            formatter={(value: number, name: string, props: any) => [
+            formatter={(value: number, _name: string, props: any) => [
               `$${value.toLocaleString()} (${props.payload.percentage}%)`,
               "Value",
             ]}
@@ -93,7 +93,7 @@ export function SectorDistributionChart() {
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      
+
       <p className="text-slate-600 text-center mt-4">
         <span className="sr-only">Chart shows </span>
         Technology sector has the highest allocation at 26% of the portfolio

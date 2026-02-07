@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react';
-// @ts-ignore
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
 
 const vertex = `
@@ -155,6 +154,6 @@ export default function DarkVeil({
             window.removeEventListener('resize', resize);
         };
     }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
-    
+
     return <canvas ref={ref} className="w-full h-full block" />;
 }

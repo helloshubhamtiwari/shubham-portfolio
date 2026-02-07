@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useTheme } from "./ThemeContext";
 
 interface AnimatedTextProps {
@@ -13,7 +13,7 @@ export function AnimatedText({ text, className = "", gradient = false }: Animate
 
   const container = {
     hidden: { opacity: 0 },
-    visible: (i = 1) => ({
+    visible: () => ({
       opacity: 1,
       transition: { staggerChildren: 0.03, delayChildren: 0.1 },
     }),
@@ -60,9 +60,9 @@ export function AnimatedText({ text, className = "", gradient = false }: Animate
 
       <style>{`
         .animated-gradient-text {
-          background: ${theme === "dark" 
-            ? "linear-gradient(90deg, #22d3ee 0%, #6366f1 50%, #22d3ee 100%)" 
-            : "linear-gradient(90deg, #0891b2 0%, #4f46e5 50%, #0891b2 100%)"};
+          background: ${theme === "dark"
+          ? "linear-gradient(90deg, #22d3ee 0%, #6366f1 50%, #22d3ee 100%)"
+          : "linear-gradient(90deg, #0891b2 0%, #4f46e5 50%, #0891b2 100%)"};
           background-size: 200% auto;
           -webkit-background-clip: text;
           background-clip: text;

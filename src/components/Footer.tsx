@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { Github, Linkedin, Mail, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 
 // Custom Behance icon component
@@ -25,13 +25,12 @@ const socialLinks = [
 
 export function Footer() {
   const { theme } = useTheme();
-  
+
   return (
-    <footer className={`relative py-12 px-6 sm:px-8 lg:px-12 border-t transition-colors duration-300 ${
-      theme === "dark" 
-        ? "bg-zinc-950 border-zinc-800/50" 
-        : "bg-white border-zinc-200"
-    }`}>
+    <footer className={`relative py-12 px-6 sm:px-8 lg:px-12 border-t transition-colors duration-300 ${theme === "dark"
+      ? "bg-zinc-950 border-zinc-800/50"
+      : "bg-white border-zinc-200"
+      }`}>
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Copyright */}
@@ -39,9 +38,8 @@ export function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className={`text-sm ${
-              theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-            }`}
+            className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+              }`}
           >
             © {new Date().getFullYear()} Shubham Tiwari. All rights reserved.
           </motion.p>
@@ -60,11 +58,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -2 }}
-                className={`p-2 transition-colors ${
-                  theme === "dark" 
-                    ? "text-zinc-500 hover:text-cyan-400" 
-                    : "text-zinc-600 hover:text-cyan-600"
-                }`}
+                className={`p-2 transition-colors ${theme === "dark"
+                  ? "text-zinc-500 hover:text-cyan-400"
+                  : "text-zinc-600 hover:text-cyan-600"
+                  }`}
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5" />

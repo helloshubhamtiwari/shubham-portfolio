@@ -1,10 +1,7 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { ArrowRight, Linkedin, Mail, Instagram, Github, Download } from "lucide-react";
-// @ts-ignore
 import profileImage from "../assets/b5e0fb96ab7ea9468a56acdfb45740b35b3b7cc5.png";
 import { useTheme } from "./ThemeContext";
-import { AnimatedText } from "./AnimatedText";
-import { TypewriterText } from "./TypewriterText";
 import ShinyText from "./ShinyText";
 import TextType from "./TextType";
 
@@ -24,7 +21,7 @@ function BehanceIcon({ className }: { className?: string }) {
 
 export function HeroSection() {
   const { theme } = useTheme();
-  
+
   return (
     <section
       id="home"
@@ -47,16 +44,15 @@ export function HeroSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className={`text-sm font-medium tracking-wide uppercase ${
-                  theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                }`}
+                className={`text-sm font-medium tracking-wide uppercase ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                  }`}
               >
                 Hello, I'm
               </motion.p>
 
               {/* Name with Advanced Animation - Two Lines */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   y: -5,
                 }}
@@ -67,25 +63,23 @@ export function HeroSection() {
                 }}
               >
                 <div className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block">
-                  {/* @ts-ignore */}
-                  <ShinyText 
-                    text="Shubham" 
-                    disabled={false} 
-                    speed={3} 
-                    className="custom-class" 
-                    color={theme === "dark" ? "#ffffff" : "#0891b2"} // White in dark mode
-                    shineColor={theme === "dark" ? "#22d3ee" : "#e0f2fe"} // Cyan shine 
+                  <ShinyText
+                    text="Shubham"
+                    disabled={false}
+                    speed={3}
+                    className="custom-class"
+                    color={theme === "dark" ? "#22d3ee" : "#0891b2"} // Cyan colors
+                    shineColor={theme === "dark" ? "#ffffff" : "#e0f2fe"}
                   />
                 </div>
                 <div className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight block">
-                  {/* @ts-ignore */}
-                  <ShinyText 
-                    text="Tiwari" 
-                    disabled={false} 
-                    speed={3} 
-                    className="custom-class" 
-                    color={theme === "dark" ? "#ffffff" : "#0891b2"}
-                    shineColor={theme === "dark" ? "#22d3ee" : "#e0f2fe"} 
+                  <ShinyText
+                    text="Tiwari"
+                    disabled={false}
+                    speed={3}
+                    className="custom-class"
+                    color={theme === "dark" ? "#22d3ee" : "#0891b2"}
+                    shineColor={theme === "dark" ? "#ffffff" : "#e0f2fe"}
                   />
                 </div>
               </motion.div>
@@ -93,16 +87,14 @@ export function HeroSection() {
               {/* Title with Typewriter Animation */}
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: 0,
                 }}
                 transition={{ delay: 0.4 }}
-                className={`text-2xl sm:text-3xl lg:text-4xl font-semibold min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[3.5rem] ${
-                  theme === "dark" ? "text-zinc-200" : "text-zinc-600"
-                }`}
+                className={`text-2xl sm:text-3xl lg:text-4xl font-semibold min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[3.5rem] ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                  }`}
               >
-                {/* @ts-ignore */}
                 <TextType
                   text={[
                     "Frontend Developer",
@@ -122,9 +114,8 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className={`text-lg max-w-2xl leading-relaxed ${
-                  theme === "dark" ? "text-zinc-300" : "text-zinc-600"
-                }`}
+                className={`text-lg max-w-2xl leading-relaxed ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                  }`}
               >
                 I'm a BCA student specializing in UI/UX from Chandigarh University, passionate about building modern web experiences, intuitive interfaces, and visually engaging digital products.
               </motion.p>
@@ -141,11 +132,10 @@ export function HeroSection() {
                 href="#projects"
                 whileHover={{ scale: 1.05, boxShadow: theme === "dark" ? "0 10px 40px rgba(34, 211, 238, 0.3)" : "0 10px 40px rgba(8, 145, 178, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className={`group relative inline-flex items-center gap-2 px-8 py-4 font-medium rounded-lg overflow-hidden transition-all duration-300 ${
-                  theme === "dark" 
-                    ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-zinc-900" 
-                    : "bg-gradient-to-r from-cyan-600 to-blue-600 text-white"
-                }`}
+                className={`group relative inline-flex items-center gap-2 px-8 py-4 font-medium rounded-lg overflow-hidden transition-all duration-300 ${theme === "dark"
+                  ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-zinc-900"
+                  : "bg-gradient-to-r from-cyan-600 to-blue-600 text-white"
+                  }`}
               >
                 <span className="relative z-10">View Projects</span>
                 <motion.div
@@ -155,7 +145,7 @@ export function HeroSection() {
                 >
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
-                
+
                 {/* Animated background */}
                 <motion.div
                   className={`absolute inset-0 ${theme === "dark" ? "bg-cyan-300" : "bg-cyan-500"}`}
@@ -169,16 +159,15 @@ export function HeroSection() {
                 href="https://drive.google.com/file/d/1zYk0FZu-yD-9gUl-gQFBFz2L8A9NOUUt/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   borderColor: theme === "dark" ? "#22d3ee" : "#0891b2",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className={`group relative inline-flex items-center gap-2 px-8 py-4 border-2 font-medium rounded-lg overflow-hidden transition-all duration-300 ${
-                  theme === "dark"
-                    ? "border-zinc-700 text-zinc-300"
-                    : "border-zinc-300 text-zinc-700"
-                }`}
+                className={`group relative inline-flex items-center gap-2 px-8 py-4 border-2 font-medium rounded-lg overflow-hidden transition-all duration-300 ${theme === "dark"
+                  ? "border-zinc-700 text-zinc-300"
+                  : "border-zinc-300 text-zinc-700"
+                  }`}
               >
                 <span className={`relative z-10 transition-colors duration-300 group-hover:${theme === "dark" ? "text-cyan-400" : "text-cyan-600"}`}>
                   Resume
@@ -190,7 +179,7 @@ export function HeroSection() {
                 >
                   <Download className={`w-5 h-5 transition-colors duration-300 group-hover:${theme === "dark" ? "text-cyan-400" : "text-cyan-600"}`} />
                 </motion.div>
-                
+
                 {/* Hover effect */}
                 <motion.div
                   className={`absolute inset-0 ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-600/10"}`}
@@ -213,11 +202,11 @@ export function HeroSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: [0, -3, 0],
                 }}
-                transition={{ 
+                transition={{
                   y: {
                     duration: 2,
                     repeat: Infinity,
@@ -228,24 +217,23 @@ export function HeroSection() {
                 }}
                 whileHover={{ y: -8, scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className={`p-2 transition-colors ${
-                  theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
-                }`}
+                className={`p-2 transition-colors ${theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
+                  }`}
                 aria-label="Behance"
               >
                 <BehanceIcon className="w-5 h-5" />
               </motion.a>
-              
+
               <motion.a
                 href="https://www.linkedin.com/in/shubamtiwari-dev?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: [0, -3, 0],
                 }}
-                transition={{ 
+                transition={{
                   y: {
                     duration: 2,
                     repeat: Infinity,
@@ -256,24 +244,23 @@ export function HeroSection() {
                 }}
                 whileHover={{ y: -8, scale: 1.2, rotate: -5 }}
                 whileTap={{ scale: 0.95 }}
-                className={`p-2 transition-colors ${
-                  theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
-                }`}
+                className={`p-2 transition-colors ${theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
+                  }`}
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </motion.a>
-              
+
               <motion.a
                 href="https://github.com/helloshubhamtiwari"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: [0, -3, 0],
                 }}
-                transition={{ 
+                transition={{
                   y: {
                     duration: 2,
                     repeat: Infinity,
@@ -284,22 +271,21 @@ export function HeroSection() {
                 }}
                 whileHover={{ y: -8, scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className={`p-2 transition-colors ${
-                  theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
-                }`}
+                className={`p-2 transition-colors ${theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
+                  }`}
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
               </motion.a>
-              
+
               <motion.a
                 href="mailto:Shubhxtiwari@gmail.com"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: [0, -3, 0],
                 }}
-                transition={{ 
+                transition={{
                   y: {
                     duration: 2,
                     repeat: Infinity,
@@ -310,24 +296,23 @@ export function HeroSection() {
                 }}
                 whileHover={{ y: -8, scale: 1.2, rotate: -5 }}
                 whileTap={{ scale: 0.95 }}
-                className={`p-2 transition-colors ${
-                  theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
-                }`}
+                className={`p-2 transition-colors ${theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
+                  }`}
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
               </motion.a>
-              
+
               <motion.a
                 href="https://www.instagram.com/shubhamtiwari.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: [0, -3, 0],
                 }}
-                transition={{ 
+                transition={{
                   y: {
                     duration: 2,
                     repeat: Infinity,
@@ -338,9 +323,8 @@ export function HeroSection() {
                 }}
                 whileHover={{ y: -8, scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className={`p-2 transition-colors ${
-                  theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
-                }`}
+                className={`p-2 transition-colors ${theme === "dark" ? "text-zinc-500 hover:text-cyan-400" : "text-zinc-600 hover:text-cyan-600"
+                  }`}
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -357,10 +341,9 @@ export function HeroSection() {
           >
             <div className="relative">
               {/* Animated glow effect */}
-              <motion.div 
-                className={`absolute inset-0 blur-3xl rounded-full ${
-                  theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-600/10"
-                }`}
+              <motion.div
+                className={`absolute inset-0 blur-3xl rounded-full ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-600/10"
+                  }`}
                 animate={{
                   scale: [1, 1.1, 1],
                   opacity: [0.5, 0.8, 0.5],
@@ -371,7 +354,7 @@ export function HeroSection() {
                   ease: "easeInOut",
                 }}
               />
-              
+
               {/* Image container with idle floating */}
               <motion.div
                 animate={{
@@ -389,16 +372,15 @@ export function HeroSection() {
                 <img
                   src={profileImage}
                   alt="Shubham Tiwari"
-                  className={`w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl border ${
-                    theme === "dark" ? "border-zinc-800/50" : "border-zinc-200"
-                  }`}
+                  loading="lazy"
+                  className={`w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl border ${theme === "dark" ? "border-zinc-800/50" : "border-zinc-200"
+                    }`}
                 />
-                
+
                 {/* Animated border accent */}
-                <motion.div 
-                  className={`absolute inset-0 rounded-2xl border ${
-                    theme === "dark" ? "border-cyan-400/20" : "border-cyan-600/20"
-                  }`}
+                <motion.div
+                  className={`absolute inset-0 rounded-2xl border ${theme === "dark" ? "border-cyan-400/20" : "border-cyan-600/20"
+                    }`}
                   animate={{
                     opacity: [0.2, 0.5, 0.2],
                   }}
@@ -424,14 +406,12 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className={`w-5 h-8 border-2 rounded-full p-1 ${
-            theme === "dark" ? "border-zinc-700" : "border-zinc-300"
-          }`}
-        >
-          <motion.div 
-            className={`w-1 h-2 rounded-full mx-auto ${
-              theme === "dark" ? "bg-zinc-600" : "bg-zinc-400"
+          className={`w-5 h-8 border-2 rounded-full p-1 ${theme === "dark" ? "border-zinc-700" : "border-zinc-300"
             }`}
+        >
+          <motion.div
+            className={`w-1 h-2 rounded-full mx-auto ${theme === "dark" ? "bg-zinc-600" : "bg-zinc-400"
+              }`}
             animate={{
               y: [0, 12, 0],
               opacity: [1, 0.3, 1],

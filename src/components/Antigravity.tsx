@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import { Canvas, useFrame, useThree, RootState } from '@react-three/fiber';
 import { useMemo, useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
@@ -139,7 +139,8 @@ const AntigravityInner = ({
     const globalRotation = state.clock.getElapsedTime() * rotationSpeed;
 
     particles.forEach((particle: Particle, i: number) => {
-      let { t, speed, mx, my, mz, cz, randomRadiusOffset } = particle;
+      const { speed, mx, my, mz, cz, randomRadiusOffset } = particle;
+      let { t } = particle;
 
       t = particle.t += speed / 2;
 
@@ -151,7 +152,7 @@ const AntigravityInner = ({
       const dy = my - projectedTargetY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      let targetPos = { x: mx, y: my, z: mz * depthFactor };
+      const targetPos = { x: mx, y: my, z: mz * depthFactor };
 
       if (dist < magnetRadius) {
         const angle = Math.atan2(dy, dx) + globalRotation;
@@ -195,24 +196,25 @@ const AntigravityInner = ({
     mesh.instanceMatrix.needsUpdate = true;
   });
 
+  const InstancedMesh = 'instancedMesh' as any;
+  const CapsuleGeometry = 'capsuleGeometry' as any;
+  const SphereGeometry = 'sphereGeometry' as any;
+  const MeshStandardMaterial = 'meshStandardMaterial' as any;
+
   return (
-    // @ts-ignore
-    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
-      {/* @ts-ignore */}
-      {particleShape === 'capsule' && <capsuleGeometry args={[0.1, 0.4, 4, 8]} />}
-      {/* @ts-ignore */}
-      {particleShape === 'sphere' && <sphereGeometry args={[0.2, 16, 16]} />}
-      {/* @ts-ignore */}
-      {particleShape === 'box' && <boxGeometry args={[0.3, 0.3, 0.3]} />}
-      {/* @ts-ignore */}
-      {particleShape === 'tetrahedron' && <tetrahedronGeometry args={[0.3]} />}
-      {/* @ts-ignore */}
-      <meshBasicMaterial color={color} />
-    </instancedMesh>
+    <InstancedMesh ref={meshRef} args={[undefined, undefined, count]}>
+      {particleShape === 'capsule' && <CapsuleGeometry args={[0.1, 0.4, 4, 8]} />}
+      {particleShape === 'sphere' && <SphereGeometry args={[0.2, 32, 32]} />}
+      <MeshStandardMaterial
+        color={color}
+        roughness={0.5}
+        metalness={0.5}
+      />
+    </InstancedMesh>
   );
 };
 
-interface AntigravityProps extends AntigravityInnerProps {}
+type AntigravityProps = AntigravityInnerProps;
 
 const Antigravity = (props: AntigravityProps) => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -227,7 +229,7 @@ const Antigravity = (props: AntigravityProps) => {
 
     checkDesktop();
     window.addEventListener('resize', checkDesktop);
-    
+
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 

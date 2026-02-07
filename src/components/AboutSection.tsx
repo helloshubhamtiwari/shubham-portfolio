@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Code2, Palette, Rocket } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 import { GlassCard } from "./GlassCard";
@@ -23,13 +23,12 @@ const highlights = [
 
 export function AboutSection() {
   const { theme } = useTheme();
-  
+
   return (
     <section
       id="about"
-      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${
-        theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
-      }`}
+      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === "dark" ? "bg-[#0a0a0f]" : "bg-zinc-50"
+        }`}
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -42,10 +41,9 @@ export function AboutSection() {
             className="space-y-6"
           >
             <div>
-              <motion.p 
-                className={`text-sm font-medium tracking-wide uppercase mb-4 ${
-                  theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                }`}
+              <motion.p
+                className={`text-sm font-medium tracking-wide uppercase mb-4 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                  }`}
                 animate={{
                   opacity: [0.7, 1, 0.7],
                 }}
@@ -57,10 +55,9 @@ export function AboutSection() {
               >
                 About Me
               </motion.p>
-              <motion.h2 
-                className={`text-4xl sm:text-5xl font-bold mb-6 ${
-                  theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-                }`}
+              <motion.h2
+                className={`text-4xl sm:text-5xl font-bold mb-6 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+                  }`}
                 animate={{
                   x: [0, 2, 0],
                 }}
@@ -76,13 +73,11 @@ export function AboutSection() {
               </motion.h2>
             </div>
 
-            <div className={`space-y-4 leading-relaxed ${
-              theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-            }`}>
+            <div className={`space-y-4 leading-relaxed ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+              }`}>
               <p>
-                I am a <span className={`font-medium ${
-                  theme === "dark" ? "text-zinc-300" : "text-zinc-900"
-                }`}>BCA student with specialization in UI/UX</span> at Chandigarh University. I work as a frontend developer and professional video editor, combining design thinking with clean, efficient code.
+                I am a <span className={`font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-900"
+                  }`}>BCA student with specialization in UI/UX</span> at Chandigarh University. I work as a frontend developer and professional video editor, combining design thinking with clean, efficient code.
               </p>
               <p>
                 I enjoy creating user-friendly digital experiences using modern frontend technologies and design tools. Currently, I am working on major and minor academic projects that focus on real-world problem solving through technology.
@@ -107,29 +102,25 @@ export function AboutSection() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <motion.div 
-                    className={`p-3 rounded-xl ${
-                      theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
-                    }`}
-                    whileHover={{ 
-                      scale: 1.1, 
+                  <motion.div
+                    className={`p-3 rounded-xl ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
+                      }`}
+                    whileHover={{
+                      scale: 1.1,
                       rotate: [0, -10, 10, -10, 0],
                       transition: { duration: 0.5 }
                     }}
                   >
-                    <item.icon className={`w-6 h-6 ${
-                      theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                    }`} />
+                    <item.icon className={`w-6 h-6 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                      }`} />
                   </motion.div>
                   <div>
-                    <h3 className={`text-lg font-semibold mb-1 ${
-                      theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-                    }`}>
+                    <h3 className={`text-lg font-semibold mb-1 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+                      }`}>
                       {item.title}
                     </h3>
-                    <p className={`text-sm ${
-                      theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-                    }`}>{item.description}</p>
+                    <p className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                      }`}>{item.description}</p>
                   </div>
                 </motion.div>
               </GlassCard>

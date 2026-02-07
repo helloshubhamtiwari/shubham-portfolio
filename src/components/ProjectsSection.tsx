@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { ExternalLink, Eye } from "lucide-react";
@@ -33,7 +33,7 @@ export function ProjectsSection() {
     <section id="projects" className="relative py-32 px-4 bg-white overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-purple-50 to-white" />
-      
+
       <div className="relative max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -49,7 +49,7 @@ export function ProjectsSection() {
             transition={{ duration: 0.5 }}
             className="inline-block mb-6"
           >
-            <motion.div 
+            <motion.div
               className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-sm"
               animate={{
                 boxShadow: [
@@ -67,8 +67,8 @@ export function ProjectsSection() {
               My Work
             </motion.div>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-slate-900 text-5xl md:text-6xl mb-4"
             animate={{
               scale: [1, 1.02, 1],
@@ -91,11 +91,9 @@ export function ProjectsSection() {
               initial={{ opacity: 0, y: 50, rotateX: -10 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              animate={{
-                y: [0, -5, 0],
-              }}
               transition={{
+                duration: 0.6,
+                delay: index * 0.1,
                 y: {
                   duration: 3 + index * 0.5,
                   repeat: Infinity,
@@ -108,7 +106,7 @@ export function ProjectsSection() {
             >
               <Card className="relative overflow-hidden rounded-3xl border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 h-full flex flex-col bg-white">
                 {/* Gradient Overlay on Hover */}
-                <motion.div 
+                <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 z-10`}
                   animate={{
                     opacity: [0, 0.05, 0],
@@ -120,7 +118,7 @@ export function ProjectsSection() {
                     delay: index * 0.5,
                   }}
                 />
-                
+
                 <div className="relative overflow-hidden">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
@@ -132,7 +130,7 @@ export function ProjectsSection() {
                       className="w-full h-64 object-cover"
                     />
                   </motion.div>
-                  
+
                   {/* Overlay with Icon */}
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -150,15 +148,15 @@ export function ProjectsSection() {
                     </motion.div>
                   </motion.div>
                 </div>
-                
+
                 <CardHeader>
                   <CardTitle className="text-slate-900 text-2xl">{project.title}</CardTitle>
                 </CardHeader>
-                
+
                 <CardContent className="flex-1">
                   <p className="text-slate-600 text-lg">{project.description}</p>
                 </CardContent>
-                
+
                 <CardFooter>
                   <Button
                     className={`w-full gap-2 rounded-2xl bg-gradient-to-r ${project.color} hover:shadow-lg hover:scale-105 transition-all duration-300 border-0`}

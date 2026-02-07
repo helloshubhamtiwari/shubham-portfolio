@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { ExternalLink, Github, Code2, Palette, Database } from "lucide-react";
+import { motion } from "framer-motion";
+import { Code2, Palette, Database } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useTheme } from "./ThemeContext";
 import { GlassCard } from "./GlassCard";
@@ -51,13 +51,12 @@ const minorProjects = [
 
 export function UnifiedProjectsSection() {
   const { theme } = useTheme();
-  
+
   return (
     <section
       id="projects"
-      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${
-        theme === "dark" ? "bg-zinc-950" : "bg-white"
-      }`}
+      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === "dark" ? "bg-zinc-950" : "bg-white"
+        }`}
     >
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -67,10 +66,9 @@ export function UnifiedProjectsSection() {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <motion.p 
-            className={`text-sm font-medium tracking-wide uppercase mb-4 ${
-              theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-            }`}
+          <motion.p
+            className={`text-sm font-medium tracking-wide uppercase mb-4 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+              }`}
             animate={{
               opacity: [0.7, 1, 0.7],
             }}
@@ -82,10 +80,9 @@ export function UnifiedProjectsSection() {
           >
             Academic & Personal Projects
           </motion.p>
-          <motion.h2 
-            className={`text-4xl sm:text-5xl font-bold mb-4 ${
-              theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-            }`}
+          <motion.h2
+            className={`text-4xl sm:text-5xl font-bold mb-4 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+              }`}
             animate={{
               x: [0, 3, 0],
             }}
@@ -97,9 +94,8 @@ export function UnifiedProjectsSection() {
           >
             My Projects
           </motion.h2>
-          <p className={`text-lg max-w-2xl ${
-            theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-          }`}>
+          <p className={`text-lg max-w-2xl ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+            }`}>
             Real-world problem solving through technology and design
           </p>
         </motion.div>
@@ -115,10 +111,9 @@ export function UnifiedProjectsSection() {
           <GlassCard className="p-8 group">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Image */}
-              <motion.div 
-                className={`relative aspect-video rounded-xl overflow-hidden ${
-                  theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
-                }`}
+              <motion.div
+                className={`relative aspect-video rounded-xl overflow-hidden ${theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
+                  }`}
                 animate={{
                   y: [0, -5, 0],
                 }}
@@ -133,11 +128,10 @@ export function UnifiedProjectsSection() {
                   alt={majorProject.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className={`absolute top-4 left-4 px-4 py-2 rounded-full text-xs font-medium ${
-                  theme === "dark" 
-                    ? "bg-cyan-400/20 text-cyan-400 border border-cyan-400/30" 
-                    : "bg-cyan-600/20 text-cyan-600 border border-cyan-600/30"
-                }`}>
+                <div className={`absolute top-4 left-4 px-4 py-2 rounded-full text-xs font-medium ${theme === "dark"
+                  ? "bg-cyan-400/20 text-cyan-400 border border-cyan-400/30"
+                  : "bg-cyan-600/20 text-cyan-600 border border-cyan-600/30"
+                  }`}>
                   Major Project
                 </div>
               </motion.div>
@@ -146,56 +140,49 @@ export function UnifiedProjectsSection() {
               <div className="space-y-6">
                 <div>
                   <div className="flex items-start gap-3 mb-3">
-                    <motion.div 
-                      className={`p-3 rounded-xl ${
-                        theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
-                      }`}
-                      whileHover={{ 
+                    <motion.div
+                      className={`p-3 rounded-xl ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
+                        }`}
+                      whileHover={{
                         rotate: [0, -10, 10, -10, 0],
                         transition: { duration: 0.5 }
                       }}
                     >
-                      <majorProject.icon className={`w-6 h-6 ${
-                        theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                      }`} />
+                      <majorProject.icon className={`w-6 h-6 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                        }`} />
                     </motion.div>
                     <div>
-                      <h3 className={`text-2xl sm:text-3xl font-bold mb-2 ${
-                        theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-                      }`}>
+                      <h3 className={`text-2xl sm:text-3xl font-bold mb-2 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+                        }`}>
                         {majorProject.title}
                       </h3>
-                      <p className={`text-sm font-medium ${
-                        theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                      }`}>
+                      <p className={`text-sm font-medium ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                        }`}>
                         {majorProject.domain}
                       </p>
                     </div>
                   </div>
-                  
-                  <p className={`text-base leading-relaxed ${
-                    theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-                  }`}>
+
+                  <p className={`text-base leading-relaxed ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                    }`}>
                     {majorProject.description}
                   </p>
                 </div>
 
                 {/* Technologies */}
                 <div>
-                  <h4 className={`text-sm font-semibold mb-3 ${
-                    theme === "dark" ? "text-zinc-300" : "text-zinc-700"
-                  }`}>
+                  <h4 className={`text-sm font-semibold mb-3 ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"
+                    }`}>
                     Technologies
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {majorProject.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                          theme === "dark"
-                            ? "bg-zinc-800/50 text-zinc-300"
-                            : "bg-zinc-200 text-zinc-700"
-                        }`}
+                        className={`px-3 py-1.5 rounded-lg text-sm font-medium ${theme === "dark"
+                          ? "bg-zinc-800/50 text-zinc-300"
+                          : "bg-zinc-200 text-zinc-700"
+                          }`}
                       >
                         {tech}
                       </span>
@@ -205,9 +192,8 @@ export function UnifiedProjectsSection() {
 
                 {/* Objectives */}
                 <div>
-                  <h4 className={`text-sm font-semibold mb-3 ${
-                    theme === "dark" ? "text-zinc-300" : "text-zinc-700"
-                  }`}>
+                  <h4 className={`text-sm font-semibold mb-3 ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"
+                    }`}>
                     Key Objectives
                   </h4>
                   <ul className="space-y-2">
@@ -218,13 +204,11 @@ export function UnifiedProjectsSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 }}
-                        className={`flex items-start gap-2 text-sm ${
-                          theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-                        }`}
+                        className={`flex items-start gap-2 text-sm ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                          }`}
                       >
-                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                          theme === "dark" ? "bg-cyan-400" : "bg-cyan-600"
-                        }`} />
+                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${theme === "dark" ? "bg-cyan-400" : "bg-cyan-600"
+                          }`} />
                         {objective}
                       </motion.li>
                     ))}
@@ -237,17 +221,16 @@ export function UnifiedProjectsSection() {
 
         {/* Minor Projects Grid */}
         <div>
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`text-2xl sm:text-3xl font-bold mb-8 ${
-              theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-            }`}
+            className={`text-2xl sm:text-3xl font-bold mb-8 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+              }`}
           >
             Minor Projects
           </motion.h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {minorProjects.map((project, index) => (
               <motion.div
@@ -258,45 +241,39 @@ export function UnifiedProjectsSection() {
                 transition={{ delay: index * 0.1 }}
               >
                 <GlassCard className="h-full group">
-                  <div className={`relative aspect-video overflow-hidden rounded-t-xl ${
-                    theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
-                  }`}>
+                  <div className={`relative aspect-video overflow-hidden rounded-t-xl ${theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
+                    }`}>
                     <ImageWithFallback
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-t opacity-60 ${
-                      theme === "dark" ? "from-zinc-900" : "from-white"
-                    } to-transparent`} />
+                    <div className={`absolute inset-0 bg-gradient-to-t opacity-60 ${theme === "dark" ? "from-zinc-900" : "from-white"
+                      } to-transparent`} />
                   </div>
 
                   <div className="p-6 space-y-4">
                     <div className="flex items-start gap-3">
-                      <motion.div 
-                        className={`p-2 rounded-lg flex-shrink-0 ${
-                          theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
-                        }`}
-                        whileHover={{ 
+                      <motion.div
+                        className={`p-2 rounded-lg flex-shrink-0 ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
+                          }`}
+                        whileHover={{
                           rotate: [0, -10, 10, -10, 0],
                           transition: { duration: 0.5 }
                         }}
                       >
-                        <project.icon className={`w-5 h-5 ${
-                          theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                        }`} />
+                        <project.icon className={`w-5 h-5 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                          }`} />
                       </motion.div>
                       <div className="flex-1">
-                        <h4 className={`text-lg font-semibold mb-2 transition-colors ${
-                          theme === "dark"
-                            ? "text-zinc-100 group-hover:text-cyan-400"
-                            : "text-zinc-900 group-hover:text-cyan-600"
-                        }`}>
+                        <h4 className={`text-lg font-semibold mb-2 transition-colors ${theme === "dark"
+                          ? "text-zinc-100 group-hover:text-cyan-400"
+                          : "text-zinc-900 group-hover:text-cyan-600"
+                          }`}>
                           {project.title}
                         </h4>
-                        <p className={`text-sm leading-relaxed ${
-                          theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-                        }`}>
+                        <p className={`text-sm leading-relaxed ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                          }`}>
                           {project.description}
                         </p>
                       </div>
@@ -307,11 +284,10 @@ export function UnifiedProjectsSection() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`text-xs px-2 py-1 rounded ${
-                            theme === "dark"
-                              ? "bg-zinc-800/50 text-zinc-400"
-                              : "bg-zinc-200 text-zinc-700"
-                          }`}
+                          className={`text-xs px-2 py-1 rounded ${theme === "dark"
+                            ? "bg-zinc-800/50 text-zinc-400"
+                            : "bg-zinc-200 text-zinc-700"
+                            }`}
                         >
                           {tag}
                         </span>

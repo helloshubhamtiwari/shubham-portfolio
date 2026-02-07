@@ -4,7 +4,7 @@ import "./CursorTrail.css";
 
 export const CursorTrail = () => {
   const { theme } = useTheme();
-  const [isMobile, setIsMobile] = useState(() => {
+  const [isMobile] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches;
   });
@@ -12,13 +12,13 @@ export const CursorTrail = () => {
   useEffect(() => {
     if (isMobile) {
       document.body.style.cursor = "auto";
-      return; 
+      return;
     }
     document.body.style.cursor = "none";
 
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll<HTMLElement & { x: number; y: number }>('.circle');
-    
+
     const inputs = document.querySelectorAll('input');
     const textarea = document.querySelectorAll('textarea');
     const buttons = document.querySelectorAll('button');
@@ -65,7 +65,7 @@ export const CursorTrail = () => {
         circle.style.left = x - 12 + 'px';
         circle.style.top = y - 12 + 'px';
         circle.style.scale = ((circles.length - index) / circles.length) as unknown as string;
-        
+
         circle.x = x;
         circle.y = y;
 

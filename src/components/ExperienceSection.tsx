@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Award } from "lucide-react";
 import { useTheme } from "./ThemeContext";
 
@@ -50,9 +50,8 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${
-        theme === "dark" ? "bg-zinc-950" : "bg-white"
-      }`}
+      className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === "dark" ? "bg-zinc-950" : "bg-white"
+        }`}
     >
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -66,9 +65,8 @@ export function ExperienceSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className={`text-sm font-medium tracking-wide uppercase mb-4 ${
-              theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-            }`}
+            className={`text-sm font-medium tracking-wide uppercase mb-4 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+              }`}
           >
             Journey
           </motion.p>
@@ -77,9 +75,8 @@ export function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl sm:text-5xl font-bold mb-4 ${
-              theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-            }`}
+            className={`text-4xl sm:text-5xl font-bold mb-4 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+              }`}
           >
             Experience & Education
           </motion.h2>
@@ -88,9 +85,8 @@ export function ExperienceSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className={`text-lg max-w-2xl ${
-              theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-            }`}
+            className={`text-lg max-w-2xl ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+              }`}
           >
             My professional journey and continuous learning path
           </motion.p>
@@ -99,9 +95,8 @@ export function ExperienceSection() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline line */}
-          <div className={`absolute left-8 top-0 bottom-0 w-0.5 ${
-            theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
-          } hidden md:block`} />
+          <div className={`absolute left-8 top-0 bottom-0 w-0.5 ${theme === "dark" ? "bg-zinc-800" : "bg-zinc-200"
+            } hidden md:block`} />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -118,29 +113,25 @@ export function ExperienceSection() {
                   <motion.div
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center border-4 ${
-                      theme === "dark"
+                    className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center border-4 ${theme === "dark"
                         ? "bg-zinc-900 border-zinc-950"
                         : "bg-white border-white"
-                    } relative z-10 shadow-lg`}
+                      } relative z-10 shadow-lg`}
                   >
-                    <div className={`p-3 rounded-full ${
-                      theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
-                    }`}>
-                      <exp.icon className={`w-6 h-6 ${
-                        theme === "dark" ? "text-cyan-400" : "text-cyan-600"
-                      }`} />
+                    <div className={`p-3 rounded-full ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
+                      }`}>
+                      <exp.icon className={`w-6 h-6 ${theme === "dark" ? "text-cyan-400" : "text-cyan-600"
+                        }`} />
                     </div>
                   </motion.div>
 
                   {/* Content */}
                   <motion.div
                     whileHover={{ x: 5 }}
-                    className={`flex-1 p-6 rounded-lg border transition-all ${
-                      theme === "dark"
+                    className={`flex-1 p-6 rounded-lg border transition-all ${theme === "dark"
                         ? "bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/70"
                         : "bg-zinc-50 border-zinc-200 hover:border-zinc-300 hover:bg-white"
-                    }`}
+                      }`}
                   >
                     <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
                       <div>
@@ -148,35 +139,30 @@ export function ExperienceSection() {
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
-                          className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
-                            theme === "dark"
+                          className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${theme === "dark"
                               ? "bg-cyan-400/10 text-cyan-400"
                               : "bg-cyan-100 text-cyan-700"
-                          }`}
+                            }`}
                         >
                           {exp.type}
                         </motion.span>
-                        <h3 className={`text-xl font-semibold mb-1 ${
-                          theme === "dark" ? "text-zinc-100" : "text-zinc-900"
-                        }`}>
+                        <h3 className={`text-xl font-semibold mb-1 ${theme === "dark" ? "text-zinc-100" : "text-zinc-900"
+                          }`}>
                           {exp.title}
                         </h3>
-                        <p className={`text-sm font-medium ${
-                          theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-                        }`}>
+                        <p className={`text-sm font-medium ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                          }`}>
                           {exp.organization}
                         </p>
                       </div>
-                      <span className={`text-sm font-medium ${
-                        theme === "dark" ? "text-zinc-500" : "text-zinc-500"
-                      }`}>
+                      <span className={`text-sm font-medium ${theme === "dark" ? "text-zinc-500" : "text-zinc-500"
+                        }`}>
                         {exp.period}
                       </span>
                     </div>
 
-                    <p className={`text-sm leading-relaxed mb-4 ${
-                      theme === "dark" ? "text-zinc-500" : "text-zinc-600"
-                    }`}>
+                    <p className={`text-sm leading-relaxed mb-4 ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
+                      }`}>
                       {exp.description}
                     </p>
 
@@ -189,9 +175,8 @@ export function ExperienceSection() {
                           viewport={{ once: true }}
                           transition={{ delay: index * 0.2 + i * 0.1 }}
                           whileHover={{ x: 5 }}
-                          className={`text-sm flex items-start gap-2 ${
-                            theme === "dark" ? "text-zinc-400" : "text-zinc-600"
-                          }`}
+                          className={`text-sm flex items-start gap-2 ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"
+                            }`}
                         >
                           <motion.span
                             animate={{ scale: [1, 1.2, 1] }}
