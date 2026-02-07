@@ -12,6 +12,11 @@ export function ContactSection() {
     email: "",
     message: "",
   });
+  const [captcha, setCaptcha] = useState({
+    num1: Math.floor(Math.random() * 10) + 1,
+    num2: Math.floor(Math.random() * 10) + 1,
+    userAnswer: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // EmailJS Keys - loaded from environment variables
@@ -21,6 +26,15 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Verify Captcha
+    if (parseInt(captcha.userAnswer) !== captcha.num1 + captcha.num2) {
+      toast.error("Incorrect Verification.", {
+        description: `Please solve the math problem: ${captcha.num1} + ${captcha.num2}`,
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -232,6 +246,30 @@ export function ContactSection() {
                   }
                   rows={5}
                   className={`w-full px-4 py-3 border rounded-lg focus:outline-none resize-none transition-colors ${theme === "dark"
+                    ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
+                    : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
+                    }`}
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              {/* Math Captcha */}
+              <div>
+                <label
+                  htmlFor="captcha"
+                  className={`block text-sm font-medium mb-2 ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"
+                    }`}
+                >
+                  Verification: What is {captcha.num1} + {captcha.num2}?
+                </label>
+                <input
+                  id="captcha"
+                  type="text"
+                  placeholder="Enter the result"
+                  value={captcha.userAnswer}
+                  onChange={(e) => setCaptcha({ ...captcha, userAnswer: e.target.value })}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-colors ${theme === "dark"
                     ? "bg-zinc-900/50 border-zinc-800/50 text-zinc-100 placeholder:text-zinc-600 focus:border-cyan-400/50"
                     : "bg-white border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-600"
                     }`}
