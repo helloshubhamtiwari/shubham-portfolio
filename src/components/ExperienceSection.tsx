@@ -20,7 +20,7 @@ const experiences = [
     icon: GraduationCap,
     type: "Education",
     title: "Bachelor of Engineering",
-    organization: "Engineering College",
+    organization: "Chandigarh University",
     period: "2021 - Present",
     description: "Pursuing engineering degree with focus on computer science and software development. Active in coding clubs and tech events.",
     achievements: [
@@ -114,8 +114,8 @@ export function ExperienceSection() {
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                     className={`flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center border-4 ${theme === "dark"
-                        ? "bg-zinc-900 border-zinc-950"
-                        : "bg-white border-white"
+                      ? "bg-zinc-900 border-zinc-950"
+                      : "bg-white border-white"
                       } relative z-10 shadow-lg`}
                   >
                     <div className={`p-3 rounded-full ${theme === "dark" ? "bg-cyan-400/10" : "bg-cyan-100"
@@ -129,8 +129,8 @@ export function ExperienceSection() {
                   <motion.div
                     whileHover={{ x: 5 }}
                     className={`flex-1 p-6 rounded-lg border transition-all ${theme === "dark"
-                        ? "bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/70"
-                        : "bg-zinc-50 border-zinc-200 hover:border-zinc-300 hover:bg-white"
+                      ? "bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50 hover:bg-zinc-900/70"
+                      : "bg-zinc-50 border-zinc-200 hover:border-zinc-300 hover:bg-white"
                       }`}
                   >
                     <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
@@ -140,8 +140,8 @@ export function ExperienceSection() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${theme === "dark"
-                              ? "bg-cyan-400/10 text-cyan-400"
-                              : "bg-cyan-100 text-cyan-700"
+                            ? "bg-cyan-400/10 text-cyan-400"
+                            : "bg-cyan-100 text-cyan-700"
                             }`}
                         >
                           {exp.type}
