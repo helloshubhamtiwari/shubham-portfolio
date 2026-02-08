@@ -28,7 +28,8 @@ const skills = {
     "Git & GitHub",
     "VS Code",
     "Framer Motion",
-    "Video Editing"
+    "Adobe Premiere Pro",
+    "Adobe After Effects"
   ],
 };
 
@@ -39,8 +40,8 @@ export function SkillsSection() {
     <section
       id="skills"
       className={`relative py-24 sm:py-32 px-6 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === "dark"
-          ? "bg-gradient-to-b from-[#0a0a0f] to-zinc-950"
-          : "bg-gradient-to-b from-zinc-50 to-white"
+        ? "bg-gradient-to-b from-[#0a0a0f] to-zinc-950"
+        : "bg-gradient-to-b from-zinc-50 to-white"
         }`}
     >
       <div className="absolute inset-0 z-0 hidden lg:block pointer-events-none">
