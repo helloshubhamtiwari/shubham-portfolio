@@ -279,7 +279,7 @@ export function HeroSection() {
               </motion.a>
 
               <motion.a
-                href="mailto:shubhamtiwari9813@gmail.com"
+                href="mailto:shubhamtiwariinbox@gmail.com"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: 1,

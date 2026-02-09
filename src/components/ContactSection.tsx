@@ -150,7 +150,7 @@ export function ContactSection() {
 
             <div className="space-y-4">
               <motion.a
-                href="mailto:shubhxtiwari@gmail.com"
+                href="mailto:shubhamtiwariinbox@gmail.com"
                 whileHover={{ x: 4 }}
                 className={`flex items-center gap-3 p-4 border rounded-lg transition-all ${theme === "dark"
                   ? "bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50"
@@ -165,7 +165,7 @@ export function ContactSection() {
                 <div>
                   <p className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"
                     }`}>Email</p>
-                  <p className={theme === "dark" ? "text-zinc-300" : "text-zinc-900"}>shubhxtiwari@gmail.com</p>
+                  <p className={theme === "dark" ? "text-zinc-300" : "text-zinc-900"}>shubhamtiwariinbox@gmail.com</p>
                 </div>
               </motion.a>
             </div>
