@@ -156,7 +156,7 @@ export function HeroSection() {
               </motion.a>
 
               <motion.a
-                href="https://drive.google.com/file/d/1zYk0FZu-yD-9gUl-gQFBFz2L8A9NOUUt/view?usp=drivesdk"
+                href="https://www.overleaf.com/read/zqnzygyrkxbf#825f89"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{
