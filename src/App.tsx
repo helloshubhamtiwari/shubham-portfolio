@@ -19,9 +19,8 @@ function AppContent() {
     <div className="min-h-screen relative transition-colors duration-300">
       {/* Cursor trail effect */}
       <CursorTrail />
-      
+
       {/* Dark Veil Background */}
-      {/* Dark Veil Background (Dark Mode Only) */}
       {theme === "dark" ? (
         <div className="fixed inset-0 z-0 pointer-events-none bg-black">
           <DarkVeil
@@ -36,7 +35,7 @@ function AppContent() {
       ) : (
         <div className="fixed inset-0 z-0 pointer-events-none bg-white" />
       )}
-      
+
       {/* Content */}
       <div className="relative z-10">
         <Navigation />
@@ -48,6 +47,7 @@ function AppContent() {
         <ContactSection />
         <Footer />
       </div>
+
       <Toaster position="bottom-right" theme={theme === "dark" ? "dark" : "light"} />
     </div>
   );
@@ -60,3 +60,4 @@ export default function App() {
     </ThemeProvider>
   );
 }
+

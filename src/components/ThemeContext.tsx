@@ -18,6 +18,20 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
+
+    // Apply background color directly to html and body
+    const root = document.documentElement;
+    const body = document.body;
+
+    if (theme === "dark") {
+      root.style.backgroundColor = "#000000";
+      body.style.backgroundColor = "#000000";
+      body.style.minHeight = "100vh";
+    } else {
+      root.style.backgroundColor = "#ffffff";
+      body.style.backgroundColor = "#ffffff";
+      body.style.minHeight = "100vh";
+    }
   }, [theme]);
 
   const toggleTheme = () => {
