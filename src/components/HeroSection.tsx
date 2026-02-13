@@ -372,7 +372,7 @@ export function HeroSection() {
                   src={profileImage}
                   alt="Shubham Tiwari"
                   loading="lazy"
-                  className={`w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl border ${theme === "dark" ? "border-zinc-800/50" : "border-zinc-200"
+                  className={`w-24 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-2xl border ${theme === "dark" ? "border-zinc-800/50" : "border-zinc-200"
                     }`}
                 />
 
