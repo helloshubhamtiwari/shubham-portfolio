@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Linkedin, Mail, Instagram, Github, Download } from "lucide-react";
-import profileImage from "../assets/b5e0fb96ab7ea9468a56acdfb45740b35b3b7cc5.png";
+import profileImage from "../assets/profile-optimized.jpg";
 import { useTheme } from "./ThemeContext";
 import ShinyText from "./ShinyText";
 import TextType from "./TextType";
