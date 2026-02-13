@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <!-- SEO Meta Tags -->
   <meta name="description"
@@ -28,15 +28,21 @@
 
   <link rel="icon" type="image/png" href="/favicon.png?v=2" />
   <title>Shubham Tiwari</title>
-  
+
   <!-- Prevent white flash on dark mode -->
   <script>
-    (function() {
+    (function () {
       const theme = localStorage.getItem('theme') || 'dark';
       const bgColor = theme === 'dark' ? '#000000' : '#ffffff';
-      document.documentElement.style.backgroundColor = bgColor;
-      document.body.style.backgroundColor = bgColor;
-      document.body.style.minHeight = '100vh';
+      const html = document.documentElement;
+      const body = document.body;
+
+      html.style.backgroundColor = bgColor;
+      html.style.height = '100%';
+
+      body.style.backgroundColor = bgColor;
+      body.style.minHeight = '100dvh';
+      body.style.margin = '0';
     })();
   </script>
 </head>

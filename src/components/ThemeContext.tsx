@@ -25,12 +25,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     if (theme === "dark") {
       root.style.backgroundColor = "#000000";
+      root.style.height = "100%";
+
       body.style.backgroundColor = "#000000";
-      body.style.minHeight = "100vh";
+      body.style.minHeight = "100dvh";
+      body.style.margin = "0";
     } else {
       root.style.backgroundColor = "#ffffff";
+      root.style.height = "100%";
+
       body.style.backgroundColor = "#ffffff";
-      body.style.minHeight = "100vh";
+      body.style.minHeight = "100dvh";
+      body.style.margin = "0";
     }
   }, [theme]);
 

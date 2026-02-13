@@ -16,7 +16,7 @@ function AppContent() {
   const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen relative transition-colors duration-300">
+    <div className="min-h-screen relative transition-colors duration-300" style={{ minHeight: '100dvh', backgroundColor: theme === 'dark' ? '#000000' : '#ffffff' }}>
       {/* Cursor trail effect */}
       <CursorTrail />
 
