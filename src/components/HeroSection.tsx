@@ -156,9 +156,8 @@ export function HeroSection() {
               </motion.a>
 
               <motion.a
-                href="https://www.overleaf.com/read/zqnzygyrkxbf#825f89"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/resume.pdf"
+                download="Shubham_Tiwari_Resume.pdf"
                 whileHover={{
                   scale: 1.05,
                   borderColor: theme === "dark" ? "#22d3ee" : "#0891b2",
